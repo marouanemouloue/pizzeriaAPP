@@ -1,0 +1,43 @@
+<form #pizzaForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="pizza">
+    <div>
+        <label for="name">Pizza Name:</label>
+        <input id="name" name="name" [(ngModel)]="pizza.name" #name="ngModel"
+            pattern="^[a-zA-Z0-9àéèç]{1,25}$" required>
+    </div>
+    <div>
+        <label for="nutriScore">Nutri-score:</label>
+        <input id="nutriScore" name="nutriScore" [(ngModel)]="pizza.nutriScore"
+            #nutriScore="ngModel" pattern="^[0-9]{1}" required>
+    </div>
+
+    <label for="ingredient">Ingredients</label>
+    <p *ngFor="let ingredient of ingredients">
+        <label>
+            <input type="checkbox"
+                class="filled-in"
+                id="{{ingredient}}"
+                [value]="ingredient"
+                [checked]="hasIngredient(ingredient)"
+                [disabled]="!isCompositionValid(ingredient)"
+                (change)="selectIngredient($event, ingredient)" />
+            <span [attr.for]="ingredient">
+                <span class="{{ ingredient | pizzaIngredientColor }}">{{
+                    ingredient }}</span>
+            </span>
+        </label>
+    </p>
+    <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+        Name is required
+    </div>
+    <div [hidden]="nutriScore.valid || nutriScore.pristine"
+        class="card-panel red accent-1">
+        NutriScore should be between 1 and 9
+    </div>
+    <div class="section center">
+        <button class="btn" type="submit" [disabled]="!pizzaForm.valid">
+            Submit
+        </button>
+    </div>
+</form>
+
+<div *ngIf="!pizza">Error: No pizza provided for editing.</div>

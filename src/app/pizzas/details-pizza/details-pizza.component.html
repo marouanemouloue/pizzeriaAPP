@@ -1,0 +1,43 @@
+<div>
+  <button (click)="backHome()"  class="previous">&laquo; Back</button>
+  <div *ngIf="pizzaToDisplay" class=" horizontal">
+    <h1 style="margin-left: 0.5em;">{{ pizzaToDisplay.name }}</h1>
+    <div class="card-image"><img [src]="pizzaToDisplay.picture"
+        style="width: 260px; margin-left: 5em;"></div>
+    <div class=" vertical">
+      <div class="card-stacked">
+        <div class="card-content">
+          <div class="pizzaDetailsList">
+            <p> Name :</p>
+            <p>{{ pizzaToDisplay.name }}</p>
+          </div>
+          <div class="pizzaDetailsList">
+            <p> Created :</p>
+            <p>{{ pizzaToDisplay.created| date}}</p>
+          </div>
+          <div class="pizzaDetailsList">
+            <p> Nutri-score :</p>
+            <p>{{ pizzaToDisplay.nutriScore}}</p>
+          </div>
+          <div class="pizzaDetailsList">
+            <p> Ingredients : </p>
+            <div *ngFor="let ingredient of pizzaToDisplay?.compositions"
+              class="{{ingredient | pizzaIngredientColor}}">
+              {{ingredient }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="buttons-layout horizontal">
+      <a (click)="editPizza(pizzaToDisplay)" class="button-8 edit" type="button">Edit</a>
+
+      <a (click)="deletePizza(pizzaToDisplay)"  class="button-8 supp" role="button">Delete</a>
+
+    </div>
+  </div>
+  <div *ngIf="!pizzaToDisplay">
+    <h4 style="text-align: center;">Aucune pizza à afficher</h4>
+  </div>
+</div>

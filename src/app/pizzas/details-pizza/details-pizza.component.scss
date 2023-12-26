@@ -1,0 +1,89 @@
+.pizzaDetailsList {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2em;
+    margin-right: 5em;
+    margin-bottom: 1em;
+    border-bottom: 1px black solid;
+}
+
+.buttons-layout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5em;
+
+}
+
+.button-8 {
+    border-radius: 5px;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    width: 10em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+
+.button-8.supp {
+    background-color: #db0e0e;
+    color: #ffffff;
+
+}
+
+.button-8.edit {
+    background-color: #03a122;
+    color: #ffffff;
+
+}
+
+.button-8.supp:hover,
+.button-8.supp:focus {
+    background-color: #ffffff;
+    color: #db0e0e;
+    border: 1px solid #db0e0e;
+
+}
+
+.button-8.edit:hover,
+.button-8.edit:focus {
+    background-color: #ffffff;
+    color: #03a122;
+    border: 1px solid #03a122;
+
+
+}
+
+
+
+.previous:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #e5e5e5;
+    color: black;
+    cursor: pointer;
+    margin: 2em 2em -2em 2em;
+    border-radius: 4px;
+    padding: 8px 16px;
+
+}

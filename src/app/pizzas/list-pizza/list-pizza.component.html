@@ -1,0 +1,21 @@
+<h1 class='center'></h1>
+<div class='container'>
+  <div class="row">
+    <div *ngFor='let singlePizza of PIZZAS' class="col s12 m4" >
+      <div class="card horizontal" (click)="selectPizza(singlePizza)" appBorderCardDirective="red">
+        <div class="card-image"><img [src]="singlePizza.picture" ></div>
+        <div class="card-stacked">
+          <div class="card-content"><p>{{ singlePizza.name }}</p>
+            <p>
+             Created :  <small>{{ singlePizza.created | date}}</small>
+            </p>
+            Ingredients : 
+            <span style="height: fit-content;" *ngFor="let ingredient of singlePizza.compositions" class="{{ingredient | pizzaIngredientColor}}">
+             <small >{{ingredient }} </small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
