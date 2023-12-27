@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: 'pizzas', component: ListPizzaComponent },
   { path: 'pizzas/:id', component: DetailsPizzaComponent },
   { path: 'pizzas/edit/:id', component:PizzaEditComponent},
-  { path: '**', pathMatch: 'full',  
-  component: PageNotFoundComponent }, 
+  {path:'',redirectTo: 'pizzas',pathMatch: 'full'},
+  {path:'**',component: PageNotFoundComponent}
+
 
 ];
 
